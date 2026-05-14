@@ -1,0 +1,32 @@
+{
+  "name": "xiaozhi (ESP32-S3)",
+  "version": "1.0.0",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "https://github.com/YOUR_USER/YOUR_REPO/releases/download/v1.0.0/bootloader.bin",
+          "offset": 0
+        },
+        {
+          "path": "https://github.com/YOUR_USER/YOUR_REPO/releases/download/v1.0.0/partition-table.bin",
+          "offset": 32768
+        },
+        {
+          "path": "https://github.com/YOUR_USER/YOUR_REPO/releases/download/v1.0.0/ota_data_initial.bin",
+          "offset": 53248
+        },
+        {
+          "path": "https://github.com/YOUR_USER/YOUR_REPO/releases/download/v1.0.0/xiaozhi.bin",
+          "offset": 131072
+        },
+        {
+          "path": "https://github.com/YOUR_USER/YOUR_REPO/releases/download/v1.0.0/generated_assets.bin",
+          "offset": 134217728
+        }
+      ]
+    }
+  ]
+}

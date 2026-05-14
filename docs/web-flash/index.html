@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ESP32-S3 固件在线烧录</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --card: #1a2332;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #3fb950;
+      --border: #30363d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      padding: 1.5rem;
+    }
+    main {
+      max-width: 40rem;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem 1.5rem 2rem;
+    }
+    h1 { font-size: 1.35rem; margin: 0 0 0.5rem; font-weight: 600; }
+    p { margin: 0.65rem 0; color: var(--muted); font-size: 0.95rem; }
+    ul { margin: 0.5rem 0 0.75rem; padding-left: 1.25rem; color: var(--muted); font-size: 0.9rem; }
+    li { margin: 0.35rem 0; }
+    .actions {
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+    esp-web-install-button::part(button) {
+      --esp-tools-button-color: #238636;
+      --esp-tools-button-text-color: #fff;
+      --esp-tools-button-border-radius: 8px;
+    }
+    .note {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    code {
+      font-size: 0.82em;
+      background: #21262d;
+      padding: 0.12em 0.4em;
+      border-radius: 4px;
+    }
+  </style>
+  <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+</head>
+<body>
+  <main>
+    <h1>ESP32-S3 固件 · 浏览器烧录</h1>
+    <p>
+      使用 USB 连接开发板，在 <strong>Chrome</strong> 或 <strong>Edge</strong>（桌面版）中打开本页，
+      点击下方按钮，按提示选择串口即可烧录。需 HTTPS（GitHub Pages 默认满足）。
+    </p>
+    <ul>
+      <li>芯片：<strong>ESP32-S3</strong>，Flash 16MB，DIO / 80MHz（与 <code>idf.py flash</code> 一致）</li>
+      <li>分区：bootloader、分区表、OTA 初始数据、应用 <code>xiaozhi.bin</code>、资源 <code>generated_assets.bin</code></li>
+    </ul>
+    <div class="actions">
+      <esp-web-install-button manifest="./manifest.json">
+        <button slot="activate" type="button">烧录固件</button>
+        <span slot="unsupported">当前浏览器不支持 Web Serial，请用 Chrome 或 Edge 桌面版打开。</span>
+        <span slot="not-allowed">请通过 HTTPS 打开本页（例如 GitHub Pages）。</span>
+      </esp-web-install-button>
+    </div>
+    <p class="note">
+      若按钮无反应或提示找不到文件：请确认已将构建产物复制到本站
+      <code>firmware/</code> 目录（见同目录 <code>firmware/README.md</code>），并已启用 GitHub Pages 指向
+      <code>/docs</code> 或包含 <code>web-flash</code> 的路径。
+    </p>
+    <p class="note" lang="en">
+      <strong>EN:</strong> Connect the board via USB. Use Chrome or Edge (desktop). Click the button and grant serial access.
+      Firmware binaries must be hosted under <code>firmware/</code> next to this page (same origin) unless you change
+      <code>manifest.json</code> to absolute URLs.
+    </p>
+  </main>
+</body>
+</html>
