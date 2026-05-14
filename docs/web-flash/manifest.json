@@ -10,7 +10,7 @@
         { "path": "firmware/partition-table.bin", "offset": 32768 },
         { "path": "firmware/ota_data_initial.bin", "offset": 53248 },
         { "path": "firmware/xiaozhi.bin", "offset": 131072 },
-        { "path": "firmware/generated_assets.bin", "offset": 134217728 }
+        { "path": "firmware/generated_assets.bin", "offset": 8388608 }
       ]
     }
   ]
